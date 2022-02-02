@@ -110,21 +110,19 @@ return returnV;
 
 const vowelsFiltration = (arr) => {
 let result=[];
-
+let vowels=['a', 'e', 'i', 'o', 'u'];
     for(let i=0;i<arr.length;i++){
-        a[i].array.forEach(element => {
-            console.log(element);
-        });
+       if(arr[i].includes(vowels)){}
 
-
-// if( ) {}      
+result.push(arr[i]);
+     
 
 
 
 
 
     }
-
+return result;
     // write your code here
 } 
 
@@ -152,15 +150,15 @@ const skillComparison = (arr1, arr2) => {
                 arr3.push(arr2[j]);
 
                }
-       else{
-
-
-      }
+     
     }
-if(arr1[i].includes(arr3)){
+    for(let a=0;a<arr3.length;a++){
+if(arr1[i].includes(arr3[a])){
+    console.log(arr1[i]);
 arr4.push(arr1[i]);
 
-}
+}``
+    }
     }
     return arr4 ;
     // write your code here
