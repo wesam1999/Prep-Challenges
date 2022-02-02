@@ -66,8 +66,14 @@ return previousValue+1;
 
 function stringReverse(str){
   
-    return str.split(" ").reduce((rev, char)=> char + " "+rev, ''); 
-  
+  let rArr = []
+  let arr = str.split(" ")
+  arr.reduce((p,c,i)=>
+    rArr.unshift(c),0
+  )
+  let nStr = rArr.join(" ")
+  return nStr
+
   }
 
 // 3) ---------------------
@@ -76,6 +82,7 @@ function stringReverse(str){
 // and how many times they got voted to as values using the reduce method.
 //
 // Input:
+
 // let voters = [
 //     {
 //         voter_Name: "Adam Scott",
@@ -109,41 +116,19 @@ function stringReverse(str){
 // ------------------------
 
 const statistics = (obj) => {
-    let returnV = {};
-    let a=0;
-    let b=0;
-    let c=0;
-    const objectCounter= obj.reduce((previousValue, currentValue)=>{
-        let result1 = Object.values(currentValue);
-        // console.log(currentValue);
- if(result1[1]==='Jade')
-       {
-        b+=1;
-        previousValue+1;
-        let Jade=result1[1];
-        returnV.Jade=b;
 
-       }
-     if(result1[1]==='James'){  
-      a+=1;
-       let James=result1[1];
-      previousValue+1;
-        returnV.James=a;
-     }
-       
-        if(result1[1]==='Bailey'){
-      c+=1;
-      previousValue+1;
-        let Bailey=result1[1];
-      returnV.Bailey=c;
-       }
-           
+  const objectCounter= obj.reduce((previousValue, currentValue)=>{
+    if(currentValue.votes_To in previousValue){
+      previousValue[currentValue.votes_To]++
+    } else{
+      previousValue[currentValue.votes_To]=1
+    }
+    return previousValue;
+
+  },{});
+return objectCounter;
   
-       
-    },0);
-return returnV;
-    
-}
+};
 
 
 
