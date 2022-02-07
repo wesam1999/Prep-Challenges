@@ -57,19 +57,28 @@ const LastWord_2 = (str) => {
 // ------------------------
 
 const replaceWords = (str) => {
-    if(str.indexOf('I')-1&&str.indexOf('am')===-1&&str.indexOf('was')===-1){
-        return str;
-            }
-            
-            else{
-        
-        
-           let a=str.splice(str.indexOf("I"),"I".length , 'we');
-           let b=str.splice(str.indexOf('am'),'am'.length , 'are');
-              let c=str.splice(str.indexOf('was'),'was'.length , 'were'); 
-            
-            }
     
+        
+  let n = str.split(" ");
+  
+ 
+  let her=n.indexOf("I")
+  if(her!=-1){
+   n.splice(her,1, 'We');
+   
+  }
+    let b=n.indexOf('am')
+    if(b!=-1){
+     n.splice(b,1 , 'are');}
+     let c=n.indexOf('was')
+     if(c!=-1){
+        n.splice(c,1 , 'were'); 
+     }
+
+
+let a=  n.join(' ');
+
+return a;
 
 
     
@@ -83,8 +92,10 @@ const replaceWords = (str) => {
 // ------------------------
 
 const arrToStr = (arr) => {
-    
-        
+  arr.splice( arr.indexOf(arr[4]) ,1,arr[4].concat(","));
+  let a=  arr.join(' ');
+
+     return a ;
          
 }
 
@@ -101,23 +112,29 @@ const arrToStr = (arr) => {
 // ------------------------
 
 const letterCounter = (str) => {
-    let rArr = ""
-    let arr = str.split("")
-  let a=  arr.reduce((p,c,i)=> {
-    if(c in p){
-      p[c]++
-      console.log(p[c]++)
-    } else{
-      p[c]=1
-    }
-    return p;
-
-  },{});
-  
-return a
    
-}
-
+      let arr = str.split("")
+  
+  
+    let a=  arr.reduce((p,c,i)=> {
+      if(c in p){
+        p[c]+1
+        p[c]++
+      } else{
+        p[c]=1
+      }
+      return p;
+  
+    },[]);
+    
+  return a
+  // let b=  a.toString();
+  // let join= a.join(' ')
+    
+  
+    // return join ;
+  
+  }
 
 
 module.exports = { LastWord, LastWord_2, replaceWords, arrToStr, letterCounter };
