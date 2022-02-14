@@ -55,7 +55,16 @@ const detectFace = (arr) => {
 // Input <= "coding" output =>"cdn"
 
 const eveCharacter = (str) => {
+    let splitString = string.split("");
+    for(let i=0;i<splitString.length;i++){
+   if(i===isOdd(i))
+   {
+    var joinArray = reverseArray.join("");
+    return joinArray;   
+}
+   
     
+    }
 }
 // -------------------------------------------------------------------------------------------------------
 
